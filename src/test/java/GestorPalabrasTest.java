@@ -16,8 +16,8 @@ public class GestorPalabrasTest {
     @Test
     public void esPalindromo() {
         GestorPalabras gp = new GestorPalabras();
+        assertEquals(true, gp.esPalindromo("allí ves sevilla"));
         assertEquals(true, gp.esPalindromo("ana"));
-        assertEquals(false, gp.esPalindromo("ana"));
     }
 
     @Test
