@@ -11,7 +11,7 @@ public class GestorPalabras {
 
     public boolean esPalindromo(String palabra) {
         String palabraFormateada = palabra.replaceAll("\\s+", "").toLowerCase();
-
+        palabraFormateada = palabraFormateada.replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u');
         for (int i = 0; i < palabraFormateada.length() / 2; i++) {
             if (palabraFormateada.charAt(i) != palabraFormateada.charAt(palabraFormateada.length() - i - 1)) {
                 return false;
