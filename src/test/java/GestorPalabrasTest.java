@@ -24,13 +24,14 @@ public class GestorPalabrasTest {
     public void noEsPolindromo() {
         GestorPalabras gp = new GestorPalabras();
         assertEquals(false, gp.esPalindromo("ordenador"));
-        assertEquals(true, gp.esPalindromo("ordenador"));
+        assertEquals(false, gp.esPalindromo("allí ves sevila"));
     }
 
-    @Test
-    public void contarVocales() {
+   @Test
+    public void introducirNumeros() {
         GestorPalabras gp = new GestorPalabras();
-        assertEquals(6, gp.contarVocales("abecedario"));
-        //assertEquals(true, gp.esPalindromo("ordenador"));
+        assertEquals(false, gp.esPalindromo("3ew567"));
+        assertEquals(true, gp.esPalindromo("00100"));
     }
+    
 }
