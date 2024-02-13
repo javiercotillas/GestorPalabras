@@ -27,11 +27,18 @@ public class GestorPalabrasTest {
         assertEquals(false, gp.esPalindromo("allí ves sevila"));
     }
 
-   @Test
-    public void introducirNumeros() {
+    @Test
+    public void contarVocales() {
         GestorPalabras gp = new GestorPalabras();
-        assertEquals(false, gp.esPalindromo("3ew567"));
-        assertEquals(true, gp.esPalindromo("00100"));
+        assertEquals(4, gp.contarVocales("ordenador"));
+        assertEquals(4, gp.contarVocales("caminata"));
+    }
+
+      @Test
+    public void contarVocalesConOSinTildes() {
+        GestorPalabras gp = new GestorPalabras();
+        assertEquals(2, gp.contarVocales("árbol"));
+        assertEquals(6, gp.contarVocales("allí ves sevilla"));
     }
     
 }
