@@ -3,18 +3,24 @@
  */
 package com.dam.gestorpalabras;
 
+import com.dam.Excepciones.TooShortWordException;
+
 /**
  *
  * @author dev
  */
 public class GestorPalabras {
 
-    public boolean esPalindromo(String palabra) {
+    public boolean esPalindromo(String palabra) throws TooShortWordException {
         String palabraFormateada = palabra.replaceAll("\\s+", "").toLowerCase();
-        palabraFormateada = palabraFormateada.replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u');
-        for (int i = 0; i < palabraFormateada.length() / 2; i++) {
-            if (palabraFormateada.charAt(i) != palabraFormateada.charAt(palabraFormateada.length() - i - 1)) {
-                return false;
+        if (palabra.length() <= 2) {
+            throw new TooShortWordException("Palabra demasiado corta, por favor introduce una palabra de más longitud");
+        } else {
+            palabraFormateada = palabraFormateada.replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u');
+            for (int i = 0; i < palabraFormateada.length() / 2; i++) {
+                if (palabraFormateada.charAt(i) != palabraFormateada.charAt(palabraFormateada.length() - i - 1)) {
+                    return false;
+                }
             }
         }
         return true;
@@ -33,7 +39,7 @@ public class GestorPalabras {
 
     public String invertirPalabra(String palabra) {
         StringBuilder resultado = new StringBuilder();
-        for (int i = palabra.length() - 2; i >= 0; i--) {
+        for (int i = palabra.length() - 1; i >= 0; i--) {
             resultado.append(palabra.charAt(i));
         }
         return resultado.toString();
